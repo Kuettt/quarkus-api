@@ -40,6 +40,11 @@ public class JobService {
         return jobs;
     }
 
+    public JobDTO findJobById(Long id){
+        JobEntity jobEntity = jobRepository.findById(id);
+        return mapJobEntityToDTO(jobEntity);
+    }
+
     public void updateJob(Long id,JobDTO jobDTO){
 
         JobEntity jobEntity = jobRepository.findById(id);

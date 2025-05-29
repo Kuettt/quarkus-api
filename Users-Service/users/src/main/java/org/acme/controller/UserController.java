@@ -22,6 +22,14 @@ public class UserController {
         return userService.findAllUsers();
     }
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("/{id}")
+    public UserDTO findUserById(@PathParam("id") Long id){
+        return userService.findUserById(id);
+    }
+
+
     @POST
     @Transactional
     public Response createUser(UserDTO userDTO)
@@ -36,6 +44,8 @@ public class UserController {
 
         }
     }
+
+
 
     @PUT
     @Transactional

@@ -27,6 +27,13 @@ public class UserService {
         return users;
     }
 
+    public UserDTO findUserById(Long id){
+        UserEntity user = userRepository.findById(id);
+        return mapUserEntityToDTO(user);
+
+    }
+
+
     public void createUser(UserDTO userDTO)
     {
         userRepository.persist(mapDTOToEntity(userDTO));
@@ -43,6 +50,7 @@ public class UserService {
 
         userRepository.persist(user);
     }
+
 
     public void deleteUser(Long id)
     {
