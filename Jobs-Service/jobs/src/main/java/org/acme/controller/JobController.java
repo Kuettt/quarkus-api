@@ -50,7 +50,7 @@ public class JobController {
     @Produces(MediaType.APPLICATION_JSON)
     public Response fetchAndSaveJobsFromApi(){
         try {
-            jobService.fetchAndSaveJobsFromApi();
+            jobService.syncJobsFromApi();
             return Response.ok("{\"message\": \"Dados sincronizados com sucesso\"}").build();
         } catch(Exception e) {
             e.printStackTrace();

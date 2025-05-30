@@ -5,9 +5,12 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
 import lombok.extern.slf4j.Slf4j;
+import org.acme.client.JobClient;
 import org.acme.dto.JobDTO;
 import org.acme.repository.JobRepository;
 import org.acme.entity.JobEntity;
+import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
+import org.eclipse.microprofile.rest.client.inject.RestClient;
 
 import java.io.InputStream;
 import java.net.HttpURLConnection;
@@ -26,6 +29,10 @@ public class JobService {
 
     @Inject
     JobRepository jobRepository;
+
+    @Inject
+    @RestClient
+    JobClient jobClient;
 
     ObjectMapper objectMapper = new ObjectMapper();
 
@@ -94,48 +101,36 @@ public class JobService {
         return jobEntity;
     }
 
-    public void fetchAndSaveJobsFromApi()
-    {
-        try{
-            URL api_url = new URI("https://boards-api.greenhouse.io/v1/boards/nubank/jobs").toURL();
-            HttpURLConnection conn = (HttpURLConnection) api_url.openConnection();
-            conn.setRequestMethod("GET");
 
-            InputStream inputStream = conn.getInputStream();
-            JsonNode rootNode = objectMapper.readTree(inputStream);
-            JsonNode jobsArray = rootNode.get("jobs");
 
-            if (jobsArray != null && jobsArray.isArray()){
-                Iterator<JsonNode> elements = jobsArray.elements();
-                while (elements.hasNext()) {
-                    JsonNode jobNode = elements.next();
+    public void syncJobsFromApi(){
+        JsonNode response = jobClient.fetchJobs();
 
-                    JobEntity job = new JobEntity();
-                    job.setJobId(jobNode.get("id").asLong());
-                    job.setTitle(jobNode.get("title").asText());
-                    job.setCompanyName("Nubank");
-                    job.setUrl(jobNode.get("absolute_url").asText());
+        if (response.has("jobs")){
+            for (JsonNode jobNode: response.get("jobs")){
+                JobEntity jobEntity = new JobEntity();
 
-                    String updatedAtStr = jobNode.get("updated_at").asText();
-                    Instant updateAt = Instant.parse(updatedAtStr);
-                    job.setUpdateAt(updateAt);
-                    job.setFirstPublished(updateAt);
+                jobEntity.setJobId(jobNode.get("id").asLong());
+                jobEntity.setTitle(jobNode.get("title").asText());
+                jobEntity.setCompanyName(jobNode.get("company_name").asText());
+                jobEntity.setUrl(jobNode.get("absolute_url").asText());
 
-                    job.setLastSync(LocalDateTime.now(ZoneOffset.UTC));
+                String updatedAtStr = jobNode.get("updated_at").asText();
+                Instant updatedAt = Instant.parse(updatedAtStr);
 
-                    if (jobRepository.findById(job.getJobId()) == null) {
-                        jobRepository.persist(job);
-                    }
+                String publishedAtStr = jobNode.get("first_published").asText();
+                Instant publishedAt = Instant.parse(publishedAtStr);
 
+                jobEntity.setUpdateAt(updatedAt);
+                jobEntity.setFirstPublished(publishedAt);
+                jobEntity.setLastSync(LocalDateTime.now(ZoneOffset.UTC));
+
+
+                if (jobRepository.findById(jobEntity.getJobId()) == null) {
+                    jobRepository.persist(jobEntity);
                 }
 
             }
-
-            inputStream.close();
-            conn.disconnect();
-
-        }catch(Exception e){
-            e.printStackTrace();
         }
     }
 
