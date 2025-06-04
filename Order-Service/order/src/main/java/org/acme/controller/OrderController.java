@@ -1,5 +1,6 @@
 package org.acme.controller;
 
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.GET;
@@ -20,6 +21,7 @@ public class OrderController {
     OrderService orderService;
 
     @GET
+    @RolesAllowed({"user", "admin"})
     @Produces(MediaType.APPLICATION_JSON)
     public List<OrderDTO> getAllOrders(){
         return orderService.getAllOrders();
