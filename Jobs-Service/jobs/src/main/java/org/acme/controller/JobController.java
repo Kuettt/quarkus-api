@@ -1,5 +1,6 @@
 package org.acme.controller;
 
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
@@ -45,6 +46,7 @@ public class JobController {
     }
 
     @POST
+    @RolesAllowed({"admin"})
     @Transactional
     @Path("/sync")
     @Produces(MediaType.APPLICATION_JSON)
