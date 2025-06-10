@@ -2,6 +2,7 @@ package org.acme.services;
 
 import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.inject.Inject;
+import org.acme.client.UserClient;
 import org.acme.dto.UserDTO;
 import org.acme.entity.UserEntity;
 import org.acme.repository.UserRepository;
@@ -15,6 +16,8 @@ public class UserService {
     @Inject
     UserRepository userRepository;
 
+    @Inject
+    UserClient userClient;
 
     public List<UserDTO> findAllUsers()
     {
@@ -37,6 +40,7 @@ public class UserService {
     public void createUser(UserDTO userDTO)
     {
         userRepository.persist(mapDTOToEntity(userDTO));
+        userClient.createUserInKeyCloak(userDTO.getUsername(), userDTO.getPassword());
     }
 
     public void UpdateUser(UserDTO userDTO, Long id)
@@ -46,8 +50,6 @@ public class UserService {
         user.setUsername(userDTO.getUsername());
         user.setPassword(userDTO.getPassword());
         user.setEmail(userDTO.getEmail());
-        user.setRole(userDTO.getRole());
-
         userRepository.persist(user);
     }
 
@@ -65,7 +67,7 @@ public class UserService {
         user.setUsername(userEntity.getUsername());
         user.setPassword(userEntity.getPassword());
         user.setEmail(userEntity.getEmail());
-        user.setRole(userEntity.getRole());
+
 
 
         return user;
@@ -77,7 +79,6 @@ public class UserService {
         user.setUsername(userDTO.getUsername());
         user.setPassword(userDTO.getPassword());
         user.setEmail(userDTO.getEmail());
-        user.setRole(userDTO.getRole());
         return user;
     }
 

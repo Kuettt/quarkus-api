@@ -1,5 +1,6 @@
 package org.acme.controller;
 
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.transaction.Transactional;
 import jakarta.ws.rs.*;
@@ -25,6 +26,7 @@ public class UserController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
+    @RolesAllowed({"admin"})
     public UserDTO findUserById(@PathParam("id") Long id){
         return userService.findUserById(id);
     }
@@ -64,6 +66,7 @@ public class UserController {
     @DELETE
     @Transactional
     @Path("/{id}")
+    @RolesAllowed({"admin"})
     public Response deleteUser(@PathParam("id") Long id)
     {
         try{

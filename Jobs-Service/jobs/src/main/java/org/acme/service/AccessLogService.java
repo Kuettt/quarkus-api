@@ -10,28 +10,28 @@ import org.acme.repository.AccessLogRepository;
 
 import java.time.LocalDateTime;
 
-@ApplicationScoped
-public class AccessLogService {
+    @ApplicationScoped
+    public class AccessLogService {
 
-    @Inject
-    AccessLogRepository accessLogRepository;
+        @Inject
+        AccessLogRepository accessLogRepository;
 
-    @Transactional
-    public void save(SecurityIdentity identity, ContainerRequestContext requestContext){
+        @Transactional
+        public void save(SecurityIdentity identity, ContainerRequestContext requestContext){
 
-        AccessLogEntity log = new AccessLogEntity();
+            AccessLogEntity log = new AccessLogEntity();
 
 
-        boolean isAdmin = identity.hasRole("admin");
-        boolean isUser = identity.hasRole("user");
+            boolean isAdmin = identity.hasRole("admin");
+            boolean isUser = identity.hasRole("user");
 
-        log.setUsername(identity.getPrincipal().getName());
-        log.setRole(isAdmin ? "admin":"user");
-        log.setEndpoint(requestContext.getUriInfo().getPath());
-        log.setDate(LocalDateTime.now());
+            log.setUsername(identity.getPrincipal().getName());
+            log.setRole(isAdmin ? "admin":"user");
+            log.setEndpoint(requestContext.getUriInfo().getPath());
+            log.setDate(LocalDateTime.now());
 
-        accessLogRepository.persist(log);
-    }
+            accessLogRepository.persist(log);
+        }
 
 
 }
