@@ -13,7 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderEntity {
+public class JobInterestEntity {
     @Id
     @GeneratedValue
     private Long orderId;

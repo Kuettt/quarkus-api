@@ -7,6 +7,10 @@ import org.acme.dto.UserDTO;
 import org.acme.entity.UserEntity;
 import org.acme.repository.UserRepository;
 
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
+import java.security.SecureRandom;
+import java.security.spec.KeySpec;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,8 +52,11 @@ public class UserService {
         UserEntity user = userRepository.findById(id);
 
         user.setUsername(userDTO.getUsername());
-        user.setPassword(userDTO.getPassword());
+        if (userDTO.getPassword() != null && !userDTO.getPassword().isEmpty()) {
+            user.setPassword(hashPassword(userDTO.getPassword()));
+        }
         user.setEmail(userDTO.getEmail());
+
         userRepository.persist(user);
     }
 
@@ -65,10 +72,7 @@ public class UserService {
         UserDTO user= new UserDTO();
 
         user.setUsername(userEntity.getUsername());
-        user.setPassword(userEntity.getPassword());
         user.setEmail(userEntity.getEmail());
-
-
 
         return user;
     }
@@ -77,11 +81,31 @@ public class UserService {
         UserEntity user = new UserEntity();
 
         user.setUsername(userDTO.getUsername());
-        user.setPassword(userDTO.getPassword());
+        user.setPassword(hashPassword(userDTO.getPassword()));
         user.setEmail(userDTO.getEmail());
         return user;
     }
 
+    private String hashPassword(String password){
+        try{
+            byte[] salt = new byte[16];
+            SecureRandom.getInstanceStrong().nextBytes(salt);
+            KeySpec spec = new PBEKeySpec(password.toCharArray(), salt, 65536, 128);
+            SecretKeyFactory f = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+            byte[] hash = f.generateSecret(spec).getEncoded();
+            return bytesToHex(hash) + ":" + bytesToHex(salt);
 
+        } catch(Exception e){
+            return null;
+        }
+    }
+
+    private String bytesToHex(byte[] bytes) {
+        StringBuilder sb = new StringBuilder();
+        for (byte b : bytes) {
+            sb.append(String.format("%02x", b));
+        }
+        return sb.toString();
+    }
 
 }

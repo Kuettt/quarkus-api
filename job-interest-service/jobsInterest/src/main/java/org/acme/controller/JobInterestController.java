@@ -9,30 +9,30 @@ import jakarta.ws.rs.Path;
 import jakarta.ws.rs.Produces;
 import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
-import org.acme.dto.OrderDTO;
-import org.acme.service.OrderService;
+import org.acme.dto.JobInterestDTO;
+import org.acme.service.JobInterestService;
 
 import java.util.List;
 
-@Path("/api/orders/")
-public class OrderController {
+@Path("/api/jobinterest/")
+public class JobInterestController {
 
     @Inject
-    OrderService orderService;
+    JobInterestService jobInterestService;
 
     @GET
     @RolesAllowed({"user", "admin"})
     @Produces(MediaType.APPLICATION_JSON)
-    public List<OrderDTO> getAllOrders(){
-        return orderService.getAllOrders();
+    public List<JobInterestDTO> getAllOrders(){
+        return jobInterestService.getAllOrders();
     }
 
     @POST
     @Transactional
-    public Response saveNewOrder(OrderDTO orderDTO)
+    public Response saveNewOrder(JobInterestDTO orderDTO)
     {
         try{
-            orderService.saveOrder(orderDTO);
+            jobInterestService.saveOrder(orderDTO);
             return Response.ok().build();
         } catch(Exception e){
             e.printStackTrace();

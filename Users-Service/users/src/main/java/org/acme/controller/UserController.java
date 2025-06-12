@@ -19,6 +19,7 @@ public class UserController {
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
+    @RolesAllowed({"admin"})
     public List<UserDTO> findAllUsers(){
         return userService.findAllUsers();
     }
@@ -52,6 +53,7 @@ public class UserController {
     @PUT
     @Transactional
     @Path("/{id}")
+    @RolesAllowed({"admin"})
     public Response updateUser(@PathParam("id") Long id ,UserDTO userDTO)
     {
         try{
@@ -66,7 +68,7 @@ public class UserController {
     @DELETE
     @Transactional
     @Path("/{id}")
-    @RolesAllowed({"admin"})
+    @RolesAllowed({"admin", "user"})
     public Response deleteUser(@PathParam("id") Long id)
     {
         try{

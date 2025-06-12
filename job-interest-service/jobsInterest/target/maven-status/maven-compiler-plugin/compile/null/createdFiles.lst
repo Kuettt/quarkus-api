@@ -1,0 +1,5 @@
+org\acme\entity\JobInterestEntity.class
+org\acme\dto\JobInterestDTO.class
+org\acme\service\JobInterestService.class
+org\acme\repository\JobInterestRepository.class
+org\acme\controller\JobInterestController.class

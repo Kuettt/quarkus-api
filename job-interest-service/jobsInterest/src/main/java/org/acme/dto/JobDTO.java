@@ -17,5 +17,4 @@ public class JobDTO {
     private Instant updateAt;
 
     private LocalDateTime lastSync;
-
 }
