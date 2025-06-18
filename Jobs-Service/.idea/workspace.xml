@@ -5,23 +5,22 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1154bd86-092a-4e18-87a5-16bdf5ecbb00" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../job-interest-service/jobsInterest/src/main/java/org/acme/service/JobInterestService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../job-interest-service/jobsInterest/src/main/java/org/acme/client/TokenProvider.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobs/src/main/java/org/acme/controller/JobController.java" beforeDir="false" afterPath="$PROJECT_DIR$/jobs/src/main/java/org/acme/controller/JobController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jobs/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/jobs/src/main/resources/application.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Users-Service/users/src/main/java/org/acme/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Users-Service/users/src/main/java/org/acme/controller/UserController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Users-Service/users/src/main/java/org/acme/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Users-Service/users/src/main/java/org/acme/services/UserService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Users-Service/users/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Users-Service/users/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../job-interest-service/jobsInterest/src/main/java/org/acme/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../job-interest-service/jobsInterest/src/main/java/org/acme/controller/JobInterestController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../job-interest-service/jobsInterest/src/main/java/org/acme/dto/JobDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../job-interest-service/jobsInterest/src/main/java/org/acme/dto/JobDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../job-interest-service/jobsInterest/src/main/java/org/acme/dto/OrderDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../job-interest-service/jobsInterest/src/main/java/org/acme/dto/JobInterestDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../job-interest-service/jobsInterest/src/main/java/org/acme/dto/UserDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/../job-interest-service/jobsInterest/src/main/java/org/acme/dto/UserDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../job-interest-service/jobsInterest/src/main/java/org/acme/entity/OrderEntity.java" beforeDir="false" afterPath="$PROJECT_DIR$/../job-interest-service/jobsInterest/src/main/java/org/acme/entity/JobInterestEntity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../job-interest-service/jobsInterest/src/main/java/org/acme/enums/Role.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../job-interest-service/jobsInterest/src/main/java/org/acme/repository/OrderRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/../job-interest-service/jobsInterest/src/main/java/org/acme/repository/JobInterestRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../job-interest-service/jobsInterest/src/main/java/org/acme/service/OrderService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../job-interest-service/jobsInterest/src/main/java/org/acme/client/UserClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/../job-interest-service/jobsInterest/src/main/java/org/acme/client/UserClient.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../job-interest-service/jobsInterest/src/main/java/org/acme/controller/JobInterestController.java" beforeDir="false" afterPath="$PROJECT_DIR$/../job-interest-service/jobsInterest/src/main/java/org/acme/controller/JobInterestController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../job-interest-service/jobsInterest/target/build-metrics.json" beforeDir="false" afterPath="$PROJECT_DIR$/../job-interest-service/jobsInterest/target/build-metrics.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../job-interest-service/jobsInterest/target/classes/org/acme/dto/UserDTO.class" beforeDir="false" afterPath="$PROJECT_DIR$/../job-interest-service/jobsInterest/target/classes/org/acme/dto/UserDTO.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../job-interest-service/jobsInterest/target/classes/org/acme/client/UserClient.class" beforeDir="false" afterPath="$PROJECT_DIR$/../job-interest-service/jobsInterest/target/classes/org/acme/client/UserClient.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../job-interest-service/jobsInterest/target/classes/org/acme/controller/JobInterestController.class" beforeDir="false" afterPath="$PROJECT_DIR$/../job-interest-service/jobsInterest/target/classes/org/acme/controller/JobInterestController.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../job-interest-service/jobsInterest/target/classes/org/acme/service/JobInterestService.class" beforeDir="false" afterPath="$PROJECT_DIR$/../job-interest-service/jobsInterest/target/classes/org/acme/service/JobInterestService.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../job-interest-service/jobsInterest/target/job-interest-service-dev.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../job-interest-service/jobsInterest/target/job-interest-service-dev.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../job-interest-service/jobsInterest/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../job-interest-service/jobsInterest/target/maven-status/maven-compiler-plugin/compile/null/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../job-interest-service/jobsInterest/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/../job-interest-service/jobsInterest/target/maven-status/maven-compiler-plugin/compile/null/inputFiles.lst" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../job-interest-service/jobsInterest/target/quarkus/bootstrap/dev-app-model.dat" beforeDir="false" afterPath="$PROJECT_DIR$/../job-interest-service/jobsInterest/target/quarkus/bootstrap/dev-app-model.dat" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +75,7 @@
       <workItem from="1749577809316" duration="22000" />
       <workItem from="1749665224916" duration="2969000" />
       <workItem from="1749754401112" duration="719000" />
+      <workItem from="1750104927410" duration="762000" />
     </task>
     <servers />
   </component>

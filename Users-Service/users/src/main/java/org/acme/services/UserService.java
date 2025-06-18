@@ -37,7 +37,6 @@ public class UserService {
     public UserDTO findUserById(Long id){
         UserEntity user = userRepository.findById(id);
         return mapUserEntityToDTO(user);
-
     }
 
 

@@ -17,6 +17,9 @@ public class UserController {
     @Inject
     UserService userService;
 
+    @Inject
+
+
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @RolesAllowed({"admin"})
@@ -28,7 +31,8 @@ public class UserController {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
     @RolesAllowed({"admin"})
-    public UserDTO findUserById(@PathParam("id") Long id){
+    public UserDTO findUserById(@HeaderParam("Authorization") String token,@PathParam("id") Long id){
+
         return userService.findUserById(id);
     }
 
@@ -47,8 +51,6 @@ public class UserController {
 
         }
     }
-
-
 
     @PUT
     @Transactional

@@ -24,7 +24,7 @@ public class JobInterestController {
     @RolesAllowed({"user", "admin"})
     @Produces(MediaType.APPLICATION_JSON)
     public List<JobInterestDTO> getAllOrders(){
-        return jobInterestService.getAllOrders();
+        return jobInterestService.getAllJobsInterests();
     }
 
     @POST
@@ -40,5 +40,7 @@ public class JobInterestController {
 
         }
     }
+
+
 
 }

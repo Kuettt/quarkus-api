@@ -10,6 +10,7 @@ import org.eclipse.microprofile.rest.client.inject.RegisterRestClient;
 @Path("/jobs")
 @RegisterRestClient
 @ApplicationScoped
+
 public interface JobClient {
 
     @GET

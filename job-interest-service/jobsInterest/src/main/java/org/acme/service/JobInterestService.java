@@ -9,6 +9,7 @@ import org.acme.client.UserClient;
 import org.acme.dto.JobInterestDTO;
 import org.acme.dto.UserDTO;
 import org.acme.entity.JobInterestEntity;
+import org.acme.provider.ServiceTokenProvider;
 import org.acme.repository.JobInterestRepository;
 import org.eclipse.microprofile.rest.client.inject.RestClient;
 
@@ -29,6 +30,9 @@ public class JobInterestService {
     @RestClient
     private JobClient jobClient;
 
+    @Inject
+    ServiceTokenProvider tokenProvider;
+
     public List<JobInterestDTO> getAllJobsInterests()
     {
         List<JobInterestDTO> jobsInterests = new ArrayList<>();
@@ -40,7 +44,8 @@ public class JobInterestService {
 
     public void saveOrder(JobInterestDTO jobInterestDTO){
 
-        UserDTO userDTO =  userClient.findUserById(jobInterestDTO.getUserId());
+        String token = "Bearer " + tokenProvider.getAccessToken();
+        UserDTO userDTO =  userClient.findUserById(token, jobInterestDTO.getUserId());
 
         if (userDTO.getUsername().equals(jobInterestDTO.getUsername()) && jobClient.findJobById(jobInterestDTO.getJobId()) != null) {
             jobInterestRepository.persist(mapDTOToOrderEntity(jobInterestDTO));

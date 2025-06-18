@@ -24,4 +24,5 @@ public interface KeycloakClient {
     void createUser(@HeaderParam("Authorization") String authorization, @PathParam("realm") String realm,
                     Map<String, Object> user);
 
+
 }

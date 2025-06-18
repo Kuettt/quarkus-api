@@ -28,7 +28,7 @@ public class JobController {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("/{id}")
-    @RolesAllowed({"admin", "user"})
+    @RolesAllowed({"admin"})
     public JobDTO findJobById(@PathParam("id") Long id){
         return jobService.findJobById(id);
     }

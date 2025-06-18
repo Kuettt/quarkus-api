@@ -1,4 +1,5 @@
 C:\Users\kates\OneDrive\Área de Trabalho\algoritmos\Udemy\Projeto de software\job-interest-service\jobsInterest\src\main\java\org\acme\client\JobClient.java
+C:\Users\kates\OneDrive\Área de Trabalho\algoritmos\Udemy\Projeto de software\job-interest-service\jobsInterest\src\main\java\org\acme\client\KeycloakTokenClient.java
 C:\Users\kates\OneDrive\Área de Trabalho\algoritmos\Udemy\Projeto de software\job-interest-service\jobsInterest\src\main\java\org\acme\client\UserClient.java
 C:\Users\kates\OneDrive\Área de Trabalho\algoritmos\Udemy\Projeto de software\job-interest-service\jobsInterest\src\main\java\org\acme\controller\JobInterestController.java
 C:\Users\kates\OneDrive\Área de Trabalho\algoritmos\Udemy\Projeto de software\job-interest-service\jobsInterest\src\main\java\org\acme\dto\JobDTO.java
@@ -8,5 +9,6 @@ C:\Users\kates\OneDrive\Área de Trabalho\algoritmos\Udemy\Projeto de software\j
 C:\Users\kates\OneDrive\Área de Trabalho\algoritmos\Udemy\Projeto de software\job-interest-service\jobsInterest\src\main\java\org\acme\GreetingResource.java
 C:\Users\kates\OneDrive\Área de Trabalho\algoritmos\Udemy\Projeto de software\job-interest-service\jobsInterest\src\main\java\org\acme\MyEntity.java
 C:\Users\kates\OneDrive\Área de Trabalho\algoritmos\Udemy\Projeto de software\job-interest-service\jobsInterest\src\main\java\org\acme\MyRemoteService.java
+C:\Users\kates\OneDrive\Área de Trabalho\algoritmos\Udemy\Projeto de software\job-interest-service\jobsInterest\src\main\java\org\acme\provider\ServiceTokenProvider.java
 C:\Users\kates\OneDrive\Área de Trabalho\algoritmos\Udemy\Projeto de software\job-interest-service\jobsInterest\src\main\java\org\acme\repository\JobInterestRepository.java
 C:\Users\kates\OneDrive\Área de Trabalho\algoritmos\Udemy\Projeto de software\job-interest-service\jobsInterest\src\main\java\org\acme\service\JobInterestService.java
