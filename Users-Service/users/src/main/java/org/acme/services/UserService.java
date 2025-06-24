@@ -40,7 +40,6 @@ public class UserService {
 
     }
 
-
     public void createUser(UserDTO userDTO)
     {
         userRepository.persist(mapDTOToEntity(userDTO));

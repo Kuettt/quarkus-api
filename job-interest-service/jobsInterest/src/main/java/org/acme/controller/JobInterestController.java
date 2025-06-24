@@ -24,13 +24,14 @@ public class JobInterestController {
     @RolesAllowed({"user", "admin"})
     @Produces(MediaType.APPLICATION_JSON)
     public List<JobInterestDTO> getAllOrders(){
-        return jobInterestService.getAllOrders();
+        return jobInterestService.getAllJobsInterests();
     }
 
     @POST
     @Transactional
     public Response saveNewOrder(JobInterestDTO orderDTO)
     {
+
         try{
             jobInterestService.saveOrder(orderDTO);
             return Response.ok().build();
